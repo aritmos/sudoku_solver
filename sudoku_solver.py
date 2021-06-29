@@ -13,8 +13,8 @@ while i < len(x):
         a[x[i]] += 1
         row = [j for j in a[x[i]-x[i] % 9: x[i]-x[i] % 9+9] if j != 0]
         col = [j for j in [a[x[i] % 9+9*j] for j in range(9)] if j != 0]
-        cell = [((x[i] // 9) // 3)*27+((x[i] % 9) // 3)*3 +
-                j for j in [0, 1, 2, 9, 10, 11, 18, 19, 20]]
+        cell = [a[i] for i in [((x[i] // 9) // 3)*27+((x[i] % 9) // 3)*3 +
+                j for j in [0, 1, 2, 9, 10, 11, 18, 19, 20]] if a[i] != 0]
         if all([len(set(j)) == len(j) for j in [row, col, cell]]):
             i += 1
     b = ' '.join([str(i) for i in a])
